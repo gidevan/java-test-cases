@@ -4,12 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
         testStringUnicodeReverse();
+        String res1 = testFinally("11");
+        System.out.println("Result testFinally:" + res1);
+        String res2 = testFinally("ss");
+        System.out.println("Result testFinally(): " + res2);
     }
 
     /**
      * Reverse unicode string Й (unicode combining)
      */
-    public static void testStringUnicodeReverse() {
+    private static void testStringUnicodeReverse() {
+        System.out.println();
+        System.out.println("=============Test unicode string reverse==============");
         reverse("asdfg");
         reverse("asdfgЁыва");
         reverse("asdfgЁыва\uD83D\uDE00fffg");
@@ -47,6 +53,20 @@ public class Main {
         System.out.println(" Input string: " + input);
         System.out.println("reversed  string: " + reverseString);
         System.out.println("Equals result: " + input.equals(reverseString));
+    }
+
+    private static String testFinally(String value) {
+        System.out.println();
+        System.out.println("==================Test Finally========================");
+        try {
+            return "Parsed value is : " + Integer.valueOf(value);
+        } catch (Exception e) {
+            System.out.println("Exception");
+            System.out.println(e);
+            return "Error parsing value: " + value;
+        } finally {
+            System.out.println("Finally block. Input value is: " + value);
+        }
     }
     
     private static String reverse(String s) {
