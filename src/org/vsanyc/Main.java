@@ -8,6 +8,7 @@ public class Main {
         System.out.println("Result testFinally:" + res1);
         String res2 = testFinally("ss");
         System.out.println("Result testFinally(): " + res2);
+        testCyrillic();
     }
 
     /**
@@ -76,5 +77,20 @@ public class Main {
         String reverseString = new StringBuilder(s).reverse().toString();
         System.out.println("reversed string:" + reverseString);
         return reverseString;
+    }
+
+    private static void testCyrillic() {
+        String s = "ЙЦ";
+        System.out.println("S length: " + s.length());
+
+        System.out.println("Char array length: " + s.toCharArray().length);
+
+        int a = 255;
+
+        byte b = (byte)a;
+
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("byte as 200: " + (byte)200);
     }
 }
